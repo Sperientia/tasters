@@ -12,6 +12,7 @@ function App() {
 		view,
 		form
 	} = useGetParams()
+
   return (
 		<>
 			{/* If there are no accessCode and no view go to loginView */}

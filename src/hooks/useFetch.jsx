@@ -2,26 +2,31 @@ import { useState, useEffect } from 'react'
 
 function useFetch(requestParams) {
 	const [data, setData] = useState([])
-	const { accessCode } = requestParams
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState(false)
+	const { url } = requestParams
 
 	useEffect(() => {
-		const fetchData = async () => {
+		const fetchData = async (url) => {
 			try {
-				const url = import.meta.env.VITE_API_URL + accessCode
 				const response = await fetch(url)
 				const json = await response.json()
-				if (json.status_code != 200) throw new Error(json.message)
+				if (json.status_code < 200 && json.status_code >= 300) throw new Error('Error Fetching Data with status: ' + json.status_code)
 				setData(json)
 			}
 			catch (error) {
+				setError(true)
 				console.error(error)
 				setData([])
 			}
+			finally {
+				setLoading(false)
+			}
 		}
-		fetchData()
+		fetchData(url)
 	}, [])
 
-	return {data}
+	return {data, loading, error}
 }
 
 export { useFetch }

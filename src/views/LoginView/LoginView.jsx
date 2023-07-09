@@ -1,13 +1,10 @@
 import React from 'react'
+import { LoginForm } from './LoginForm'
 
 function LoginView() {
 	return (
 		<div className='LoginView'>
-			<form className='login__box'>
-				<label htmlFor="accessCode">Código de acceso</label>
-				<input type="text" name="accessCode" id="accessCode" />
-				<button type="submit">Entrar</button>
-			</form>
+			<LoginForm />
 		</div>
 	)
 }
