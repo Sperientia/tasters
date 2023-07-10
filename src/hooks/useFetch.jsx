@@ -10,6 +10,7 @@ function useFetch(requestParams) {
 		const fetchData = async (url) => {
 			try {
 				const response = await fetch(url)
+				if (!response.ok) throw new Error('Error Fetching Data with status: ' + response.status)
 				const json = await response.json()
 				if (json.status_code < 200 && json.status_code >= 300) throw new Error('Error Fetching Data with status: ' + json.status_code)
 				setData(json)

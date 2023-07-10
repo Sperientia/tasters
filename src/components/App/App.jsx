@@ -10,7 +10,6 @@ function App() {
 	const {
 		accessCode,
 		view,
-		form
 	} = useGetParams()
 
   return (
@@ -21,13 +20,13 @@ function App() {
 			}
 
 			{/* If there are accessCode but no view or view is other than forms then render UserView */}
-			{accessCode && (!view || view !== 'forms') &&
+			{accessCode && !view &&
 				<UserView accessCode = {accessCode} />
 			}
 
 			{/* If there are accessCode and view is forms then render FormsView */}
-			{accessCode && view === 'forms' && form &&
-				<FormsView />
+			{accessCode && view &&
+				<FormsView view={view} />
 			}
     </>
   )

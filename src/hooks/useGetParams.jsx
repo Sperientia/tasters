@@ -11,13 +11,11 @@ function useGetParams() {
 		const urlParams = new URLSearchParams(window.location.search)
 		const accessCode = urlParams.get('accessCode')
 		const view = urlParams.get('view')
-		const form = urlParams.get('view')
 		setaccessCode(accessCode)
 		setView(view)
-		setView(form)
 	}, [])
 
-	return { accessCode, view, form }
+	return { accessCode, view }
 }
 
 

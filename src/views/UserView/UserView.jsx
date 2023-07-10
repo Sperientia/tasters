@@ -5,11 +5,11 @@ import { Profile } from '../../components/Profile/Profile'
 import { LogOutBtn } from '../../components/LogOutBtn/LogOutBtn'
 
 function UserView({ accessCode }) {
-	const { 
+	const {
 		data: userData,
 		loading: userLoading,
 		error: userError
-	} = useFetch({ 
+	} = useFetch({
 		url: import.meta.env.VITE_API_URL + 'user/' + accessCode
 	})
 
@@ -18,28 +18,27 @@ function UserView({ accessCode }) {
 		loading: mappingLoading,
 		error: mappingError
 	} = useFetch({
-		url: import.meta.env.VITE_API_URL + 'mapping'
-	})
-	
+		url: import.meta.env.VITE_API_URL + 'mapping/' + 'users'
+	})	
 
-	if (userData.status_code < 200 || userData.status_code >= 300) return (<Error404 />)
+	if (userData.status_code < 200 || userData.status_code >= 300) return <Error404 />
+	if (mappingData.status_code < 200 || mappingData.status_code >= 300) return <Error404 />
 
 	return (
 		<div className='UserView'>
-			{userLoading && !userError && (
-				<h1>Loading...</h1>
-			)}
-
-			{!userLoading && !userError && userData && (
+			{userLoading || mappingLoading ? <h1>Loading...</h1> : null}
+			{userError || mappingError ? <Error404 /> : null}
+			
+			{!userLoading && !mappingLoading && !userError && !mappingError && (
 				<>
-					<Profile userData={userData.response} />
+					<Profile
+						userData={userData}
+						mappingData={mappingData}
+					/>
 					<LogOutBtn />
 				</>
 			)}
 
-			{userError && (
-				<h1>Error</h1>
-			)}
 
 		</div>
 	)

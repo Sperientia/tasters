@@ -11,3 +11,9 @@ body {
 	background-color: #fff;
 	padding: 2rem;
 }
+
+@media (max-width: 860px) {
+	body {
+		padding: 1rem;
+	}
+}
