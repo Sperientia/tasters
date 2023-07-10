@@ -1,0 +1,15 @@
+.forms__section__info {
+	margin-bottom: 1rem;
+}
+
+.forms__section__forms {
+	display: flex;
+}
+
+@media (max-width: 768px) {
+	/* Path: src/components/FormsSection/FormsSection.css */
+	.FormsSection {
+		align-items: center;
+		justify-content: center;
+	}
+}

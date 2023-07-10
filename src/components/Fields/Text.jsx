@@ -2,13 +2,13 @@ import React from 'react'
 import './Fields.css'
 
 function Text({ fieldName, value }) {
-	let fieldNameClass = 'field__text'
+	let fieldNameClass = 'field'
 	let fieldValueClass = 'field__value'
-	let displayedValue = value ? value : 'No completado'
-	if (!value) fieldNameClass += ' field--empty'
-	if (!value) fieldValueClass += ' field__value--empty'
+	let displayedValue = value || value === 0 ? value : 'No completado'
+	if (!value && value != 0) fieldNameClass += ' field--empty'
+	if (!value && value != 0) fieldValueClass += ' field__value--empty'
 	return (
-		<div className={fieldNameClass + ' field'}>
+		<div className={fieldNameClass}>
 			<div className='field__name'>
 				{fieldName}
 			</div>

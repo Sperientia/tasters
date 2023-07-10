@@ -26,7 +26,7 @@ function App() {
 
 			{/* If there are accessCode and view is forms then render FormsView */}
 			{accessCode && view &&
-				<FormsView view={view} />
+				<FormsView view={view} accessCode={accessCode}/>
 			}
     </>
   )

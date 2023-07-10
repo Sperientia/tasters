@@ -2,12 +2,11 @@ import React from 'react'
 import './Profile.css'
 import { Text } from '../Fields/Text'
 import { Checkbox } from '../Fields/Checkbox'
+import { Link } from '../Fields/Link'
 
 function Profile({ userData, mappingData }) {
 	let data = userData.response
 	let mapping = mappingData.response
-	console.log(data)
-	console.log(mapping)
 	return (
 		<div className='profile__section'>
 			<h1 className='profile__title'>Hola, {data.name}</h1>
@@ -17,6 +16,7 @@ function Profile({ userData, mappingData }) {
 				{mapping.map((field, index) => {
 					if (field.type === 'text') return <Text key={index} fieldName={field.frontend_name} value={data[field.airtable_name]} />
 					if (field.type === 'checkbox') return <Checkbox key={index} fieldName={field.frontend_name} value={data[field.airtable_name]} />
+					if (field.type === 'link') return <Link key={index} fieldName={field.frontend_name} value={data[field.airtable_name]} />
 				})}	
 			</div>
 

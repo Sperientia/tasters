@@ -44,8 +44,79 @@
 	color: #1A5D1A;
 }
 
+.field.field__link {
+	border: 2px solid #78C1F3;
+}
+
+.field__link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* button color blue */
+.field__btn {
+	padding: 1rem;
+	font-size: 1rem;
+	border-radius: 5px;
+	border: 2px solid #78C1F3;
+	background-color: #C5DFF8;
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out;
+	color: #071952;
+}
+
+.field__btn:hover {
+	transform: scale(1.05);
+}
+
+.field__link__value {
+	text-decoration: none;
+	color: #071952;
+}
+
+.field__form {
+	display: flex;
+	align-items: center;
+	margin-right: 1rem;
+	padding: 1rem;
+	border-radius: 5px;
+	border: 2px solid #862B0D;
+	background-color: #FCAEAE;
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out;
+
+	opacity: 0.3;
+}
+
+.field__form:hover {
+	transform: scale(1.05);
+}
+
+.field__form__link {
+	text-decoration: none;
+	color: #862B0D;
+}
+
+.field__form__link--completed {
+	border: 2px solid #1A5D1A;
+	background-color: #C3EDC0;
+	opacity: 1;
+}
+
+.multiple__single__value {
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin-bottom: 4px;
+	border-radius: 5px;
+}
+
+.field__form__link--completed .field__form__title {
+	color: #1A5D1A;
+}
+
 @media (max-width: 860px) {
-	.field__text {
+	.field {
 		width: 100%;
 	}
 	.field__name {

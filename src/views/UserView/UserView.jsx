@@ -3,6 +3,7 @@ import { useFetch } from '../../hooks/useFetch'
 import { Error404 } from '../Error404/Error404'
 import { Profile } from '../../components/Profile/Profile'
 import { LogOutBtn } from '../../components/LogOutBtn/LogOutBtn'
+import { FormsSection } from '../../components/FormsSection/FormsSection'
 
 function UserView({ accessCode }) {
 	const {
@@ -25,7 +26,7 @@ function UserView({ accessCode }) {
 	if (mappingData.status_code < 200 || mappingData.status_code >= 300) return <Error404 />
 
 	return (
-		<div className='UserView'>
+		<div className='user__view'>
 			{userLoading || mappingLoading ? <h1>Loading...</h1> : null}
 			{userError || mappingError ? <Error404 /> : null}
 			
@@ -35,6 +36,8 @@ function UserView({ accessCode }) {
 						userData={userData}
 						mappingData={mappingData}
 					/>
+					<FormsSection userData={userData} />
+
 					<LogOutBtn />
 				</>
 			)}

@@ -1,4 +1,5 @@
 import React from 'react'
+import './LogOutBtn.css'
 
 function LogOutBtn() {
 	return (
@@ -8,7 +9,7 @@ function LogOutBtn() {
 					window.location.href = '/'
 				}}
 			>
-				Logout
+				Salir de la cuenta
 			</button>
 	)
 }
