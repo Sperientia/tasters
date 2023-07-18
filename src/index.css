@@ -8,12 +8,12 @@
 }
 
 body {
-	background-color: #fff;
-	padding: 2rem;
+	background-color: #FDF5F8;
+	overflow-x: hidden;
 }
 
-@media (max-width: 860px) {
+/* @media (max-width: 860px) {
 	body {
 		padding: 1rem;
 	}
-}
+} */

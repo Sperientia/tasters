@@ -3,7 +3,6 @@ import { useFetch } from '../../hooks/useFetch'
 import { Error404 } from '../Error404/Error404'
 import { Profile } from '../../components/Profile/Profile'
 import { LogOutBtn } from '../../components/LogOutBtn/LogOutBtn'
-import { FormsSection } from '../../components/FormsSection/FormsSection'
 
 function UserView({ accessCode }) {
 	const {
@@ -36,7 +35,6 @@ function UserView({ accessCode }) {
 						userData={userData}
 						mappingData={mappingData}
 					/>
-					<FormsSection userData={userData} />
 
 					<LogOutBtn />
 				</>

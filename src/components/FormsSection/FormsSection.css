@@ -1,9 +1,14 @@
 .forms__section__info {
-	margin-bottom: 1rem;
+	color: #2A2A57;
+	text-align: center;
+	font-size: 2rem;
+	text-align: left;
 }
 
 .forms__section__forms {
 	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 @media (max-width: 768px) {

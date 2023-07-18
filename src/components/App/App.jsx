@@ -3,6 +3,7 @@ import { useGetParams } from '../../hooks/useGetParams'
 import { LoginView } from '../../views/LoginView/LoginView'
 import { UserView } from '../../views/UserView/UserView'
 import { FormsView } from '../../views/FormsView/FormsView'
+import { Header } from '../Header/Header'
 
 
 // This is the App component. Where the view is decided.
@@ -14,6 +15,7 @@ function App() {
 
   return (
 		<>
+			<Header />
 			{/* If there are no accessCode and no view go to loginView */}
 			{!accessCode && !view && 
 				<LoginView />

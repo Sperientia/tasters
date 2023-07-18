@@ -16,7 +16,7 @@ function FormsSection({ userData }) {
 
 	return (
 		<div className='forms__section'>
-			<p className='forms__section__info'>En esta sección puedes ver los estudios, los que están opacos son los que no has hecho aún.</p>
+			<p className='forms__section__info'>Categoría</p>
 			<div className='forms__section__forms'>
 				{formsLoading ? <h1>Cargando estudios</h1> : null}
 				{formsError ? <h1>Error cargando estudios</h1> : null}

@@ -6,21 +6,28 @@
 	padding: 1rem;
 
 	border-radius: 5px;
-	border: 2px solid #C3EDC0;
+	border: 2px solid #2A2A57;
 	margin-bottom: 1rem;
+
+	color: #2A2A57;
 }
 
 .field--empty {
-	border: 2px dashed #FCAEAE;
+	border: 2px dashed #E72A6D;
 }
 
 .field__name {
   width: 250px;
 	padding: 0 10px;
+	font-weight: 500;
+}
+
+.field--empty .field__name {
+	color: #E72A6D;
 }
 
 .field__value--empty {
-	color: #FCAEAE;
+	color: #E72A6D;
 }
 
 .field__checkbox {
@@ -35,8 +42,8 @@
 }
 
 .field__checkbox--false {
-	border: 2px solid #862B0D;
-	color: #862B0D;
+	border: 2px solid #E72A6D;
+	color: #E72A6D;
 }
 
 .field__checkbox--true {
@@ -45,7 +52,7 @@
 }
 
 .field.field__link {
-	border: 2px solid #78C1F3;
+	border: 2px solid #5E5EF5;
 }
 
 .field__link {
@@ -59,11 +66,11 @@
 	padding: 1rem;
 	font-size: 1rem;
 	border-radius: 5px;
-	border: 2px solid #78C1F3;
-	background-color: #C5DFF8;
+	border: 2px solid #5E5EF5;
+	background-color: #5E5EF5;
 	cursor: pointer;
 	transition: transform 0.2s ease-in-out;
-	color: #071952;
+	color: white;
 }
 
 .field__btn:hover {
@@ -76,17 +83,15 @@
 }
 
 .field__form {
+	min-width: 10rem;
 	display: flex;
 	align-items: center;
 	margin-right: 1rem;
 	padding: 1rem;
 	border-radius: 5px;
-	border: 2px solid #862B0D;
-	background-color: #FCAEAE;
+	border: 2px solid #2A2A57;
 	cursor: pointer;
 	transition: transform 0.2s ease-in-out;
-
-	opacity: 0.3;
 }
 
 .field__form:hover {
@@ -95,13 +100,13 @@
 
 .field__form__link {
 	text-decoration: none;
-	color: #862B0D;
+	color: #2A2A57;
 }
 
 .field__form__link--completed {
-	border: 2px solid #1A5D1A;
-	background-color: #C3EDC0;
-	opacity: 1;
+	border: 2px solid #5E5EF5;
+	background-color: #5E5EF5;
+	color: white;
 }
 
 .multiple__single__value {
@@ -111,8 +116,17 @@
 	border-radius: 5px;
 }
 
-.field__form__link--completed .field__form__title {
-	color: #1A5D1A;
+.field__form__link--intern {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 2rem;
+}
+
+.field__form__title {
+	font-size: 1rem;
 }
 
 @media (max-width: 860px) {
@@ -125,5 +139,17 @@
 	}
 	.field__value {
 		word-break: break-all;
+	}
+
+	.field__form svg {
+		display: none;
+	}
+
+	.field__form {
+		min-width: 0;
+	}
+
+	.field__form__link {
+		padding: 0.5rem;
 	}
 }
