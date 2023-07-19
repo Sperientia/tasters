@@ -4,40 +4,108 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 
-	width: 50vh;
-	height: 30vh;
+	width: 40vw;
+	height: 50vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-around;
 	border-radius: 1rem;
+
+	text-align: left;
+	color: #2A2A57;
 	
-	background-color: #5D5CF8;
+	padding: 2rem 5rem;
+}
+
+.color__pink {
+	color: #E72A6D;
 }
 
 .login__box__title {
-	text-align: center;
 	font-size: 2rem;
 	margin-bottom: 1rem;
 	margin: 0 0 1rem 0;
 	font-weight: 600;
 }
 
+.login__box__input--container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
 .login__box__input {
-	width: 80%;
+	width: 100%;
 	height: 3rem;
-	margin-bottom: 1.5rem;
 	border-radius: 5px;
-	border: 1px solid gray;
-	padding: 1rem;
+	border: 1px solid #2A2A57;
+	padding: 1rem 2rem;
 	font-weight: 400;
-	text-align: center;
 	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+	color: #2A2A57;
 }
 
 .login__box__btn {
-	font-size: 1rem;
+	font-size: 1.5rem;
 	padding: 0.5rem 1rem;
+	width: 100%;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	background-color: #2A2A57;
+	font-weight: 600;
+}
+
+.login__forgot__password {
+	font-size: 0.8rem;
+	color: #386b9b;
+	text-decoration: underline;
+	margin: 0;
+}
+
+.login__forgot__password:hover {
+	cursor: pointer;
+	color: #2A2A57;
+	text-decoration: none;
+}
+
+.social__media__container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.social__media__text {
+	color: #767C88;
+	font-weight: 600;
+	text-align: center;
+}
+
+.social__media__icons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+	margin-top: 1rem;
+}
+
+.social__media__icon__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem; /* adjust this value to your needs */
+  height: 3rem; /* adjust this value to your needs */
+  background-color: #F6F6F6; /* adjust this value to your needs */
+	border: 1px solid #767C88;
+  border-radius: 5px; /* adjust this value to your needs */
+  overflow: hidden; /* optional: this will make sure the icons are contained within the box */
+}
+
+.social__media__icon {
+  color: #2A2A57; /* adjust this value to your needs */
+  text-decoration: none;
+	font-size: 1.5rem;
 }
 
 
