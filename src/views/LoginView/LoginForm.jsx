@@ -8,15 +8,15 @@ function LoginForm() {
 			<h2
 				className='login__box__title'
 			>
-				¡Hola! Ingresa tu <span className='color__pink'>código</span> de acceso para continuar
+				¡Hola! Ingresa tu <span className='color__pink'>código</span> de acceso para continuar en la cajita de abajo 👇
 			</h2>
 			<div className='login__box__input--container'>
 			<input
-				type="text"
-				name="accessCode"
-				id="accessCode"
-				className='login__box__input'
-				placeholder='- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -'
+					type="text"
+					name="accessCode"
+					id="accessCode"
+					className='login__box__input'
+					placeholder='Escribe aqui el código de acceso'
 				/>
 
 				<a href="/" className='login__forgot__password'>¿Olvidaste tu contraseña?</a>
