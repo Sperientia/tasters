@@ -2,8 +2,8 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 8rem 0 5rem;
-	height: 10rem;
+	padding: 0 8rem 0 3rem;
+	height: 9rem;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -26,7 +26,7 @@
 
 .navbar__link {
 	text-decoration: none;
-	color: #39399d;
+	color: var(--link-navbar-color);
 	font-weight: 500;
 	font-size: 1rem;
 }
@@ -39,8 +39,11 @@
 }
 
 .navbar__item:hover {
-	background-color: #f5f5f5;
 	transform: scale(1.02);
+}
+
+.navbar__item:hover:last-child {
+	background-color: #f5f5f5;
 }
 
 @media (max-width: 775px) {

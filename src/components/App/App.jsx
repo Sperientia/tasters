@@ -1,5 +1,6 @@
 import { useStore } from '../../hooks/useStore'
 import { Header } from '../Header/Header'
+import { LoginView } from '../../views/LoginView/LoginView'
 
 function App() {
 	// Get the accessCode and view from useStore
@@ -8,13 +9,14 @@ function App() {
 		view
 	} = useStore()
 
+	console.log(accessCode)
 	return (
 		<>
 			{/* We always show the header */}
 			<Header />
 			{/* If there is no accessCode and no view, go to loginView */}
 			{!accessCode && !view && (
-				<h1>loginView1</h1>
+				<LoginView />
 			)}
 			{/* If there is an accessCode and no view, go to userView */}
 			{accessCode && !view && (

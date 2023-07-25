@@ -43,16 +43,24 @@ const reducer = (state, action) => {
 export function useStore() {
 	// Create the useReducer hook and get the dispatch
 	// Get the accessCode and view from the query params
-	const initialParams = useGetParams()
 	const [{
 		accessCode,
 		view
-	}, dispatch] = useReducer(reducer, initialParams)
+	}, dispatch] = useReducer(reducer, {
+		accessCode: null,
+		view: null
+	})
 
+	console.log(accessCode, view)
 	// Create actions dispatchers
 	const restart_app = () => dispatch({ type: 'RESTART_APP' })
 	const set_access_code = accessCode => dispatch({ type: 'SET_ACCESS_CODE', accessCode })
 	const set_view = view => dispatch({ type: 'SET_VIEW', view })
+	// Initialize reducer state
+	useGetParams(set_access_code, set_view)
+
+	console.log(accessCode, view)
+
 
 	// Return store
 	return {
