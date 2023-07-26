@@ -29,18 +29,38 @@ body {
 
 	width: fit-content;
 	min-width: 30vw;
-	max-width: 40vw;
+	max-width: 50vw;
 
 	height: fit-content;
 	min-height: 40vh;
-	max-height: 60vh;
 
 	margin-top: 5rem;
 	border-radius: 5px;
-	padding: 0 2rem;
+	padding: 1rem 2rem;
+}
+
+.container.error {
+	width: 100vw;
+	max-width: none;
+	display: flex;
+	justify-content: center;
+	border: none;
 }
 
 .color__pink {
 	color: var(--highlight-color);
 }
 
+@media (max-width: 850px) {
+	.container {
+		max-width: 70vw;
+	}
+}
+
+@media (max-width: 650px) {
+	.login__view.container {
+		width: 100%;
+		max-width: 95vw;
+		max-height: none;
+	}
+}

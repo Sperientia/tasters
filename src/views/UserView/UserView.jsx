@@ -1,7 +1,17 @@
+import { Error404 } from '../../components/Error404/Error404'
+import { FormSection } from '../../components/FormSection/FormSection'
 import { useStoreUser } from '../../hooks/useStoreUser'
+import { useStoreMapping } from '../../hooks/useStoreMapping'
 
 // eslint-disable-next-line react/prop-types
 export const UserView = ({ accessCode }) => {
+	// Get the reducer from mappingData
+	const {
+		mappingData,
+		loadingMappingData,
+		errorMappingData
+	} = useStoreMapping('users')
+
 	// Get the reducer from useStoreUser
 	const {
 		userData,
@@ -9,21 +19,27 @@ export const UserView = ({ accessCode }) => {
 		errorUserData
 	} = useStoreUser(accessCode)
 
-	let className = 'user__view container' + (loadingUserData ? ' loading' : '')
-	className = className + (errorUserData ? ' error' : '')
+	const loadingData = loadingMappingData || loadingUserData
+	const errorData = errorMappingData || errorUserData
+
+	let className = 'user__view container' + (loadingData ? ' loading' : '')
+	className = className + (errorData ? ' error' : '')
 
 	return (
 		<div className={className}>
-			{loadingUserData && <p>Loading...</p>}
+			{loadingData && <p>Loading...</p>}
 
-			{errorUserData && !loadingUserData && <p>Something went wrong</p>}
+			{errorData && !loadingData && (
+				<Error404 errorMessae={errorData} />
+			)}
 
-			{userData && !loadingUserData && !errorUserData && (
-				<>
-					<h1>{userData.name}</h1>
-					<p>{userData.email}</p>
-					<p>{userData.phone}</p>
-				</>
+			{userData && !loadingData && !errorData && (
+				<FormSection
+					data={userData}
+					mappingData={mappingData}
+					title={['Hola,', <span className='color__pink' key={1}>{userData.name}</span>]}
+					subtitle='Este es tu perfil de tasters, al final de la página habrá un link donde podrás actualizar y completar tus datos.'
+				/>
 			)}
 		</div>
 	)

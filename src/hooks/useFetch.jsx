@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 
 // Fetch data from the API
-export const useFetch = (url, {callAPI, login, setError, loadingUserData}) => {
+export const useFetch = (url, {callAPI, setData, setError, loadingUserData}) => {
 	
 	useEffect(() => {
 		const fetchData = async () => {
@@ -14,10 +14,10 @@ export const useFetch = (url, {callAPI, login, setError, loadingUserData}) => {
 					throw new Error("Something went wrong", response.statusText)
 				// Get the data
 				const data = await response.json()
-				login(data)
+				setData(data)
 			} catch (error) {
 				console.error(`Error: ${error.message}`)
-				setError()
+				setError(error.message)
 			}
 		}
 

@@ -22,13 +22,16 @@ const userReducer = (state, action) => {
 	}
 
 	// Create error action
-	if (type === 'ERROR')
+	if (type === 'ERROR') {
+		const { currentError } = action
 		return {
 			...state,
 			userData: null,
-			errorUserData: true,
+			errorUserData: currentError || true,
 			loadingUserData: false,
 		}
+	}
+	
 }
 
 // Crete store
@@ -46,12 +49,12 @@ export function useStoreUser(accessCode) {
 	// Create actions dispatchers
 	const callAPI = () => dispatch({ type: 'CALL_API' })
 	const login = data => dispatch({ type: 'LOGIN', data })
-	const setError = () => dispatch({ type: 'ERROR' })
+	const setError = currentError => dispatch({ type: 'ERROR', currentError })
 
 	// use fetch for initial login
 	useFetch(import.meta.env.VITE_API_URL + '/user/' + accessCode, {
 		callAPI,
-		login,
+		setData: login,
 		setError,
 		loadingUserData
 	})
