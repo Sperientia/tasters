@@ -1,6 +1,6 @@
 import { LoginForm } from '../../components/LoginForm/LoginForm'
 import { socials } from '../../data/social'
-import './loginView.css'
+import './LoginView.css'
 
 export const LoginView = () => {
 	return (
@@ -12,7 +12,7 @@ export const LoginView = () => {
 			<p className='login__social__title'>Redes sociales</p>
 			<div className='social__icon__section'>
 				{socials.map((social, index) => (
-					<a href={social.href} target='_blank' key={index} className='social__icon--button'>
+					<a href={social.href} target='_blank' key={index} className='social__icon--button' rel='noreferrer'>
 						{social.icon()}
 					</a> 
 				))}

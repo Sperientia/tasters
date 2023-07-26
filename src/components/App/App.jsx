@@ -1,6 +1,7 @@
 import { useStore } from '../../hooks/useStore'
 import { Header } from '../Header/Header'
 import { LoginView } from '../../views/LoginView/LoginView'
+import { UserView } from '../../views/UserView/UserView'
 
 function App() {
 	// Get the accessCode and view from useStore
@@ -9,7 +10,9 @@ function App() {
 		view
 	} = useStore()
 
-	console.log(accessCode)
+	// If there is no accessCode and view, go to loginView
+	if (!accessCode && view) window.location.href = '/'
+
 	return (
 		<>
 			{/* We always show the header */}
@@ -20,11 +23,7 @@ function App() {
 			)}
 			{/* If there is an accessCode and no view, go to userView */}
 			{accessCode && !view && (
-				<h1>userView2</h1>
-			)}
-			{/* If there is no accessCode and a view, go to loginView */}
-			{!accessCode && view && (
-				<h1>loginView3</h1>
+				<UserView accessCode={accessCode}/>
 			)}
 			{/* If there is accessCode and view then render FormsView */}
 			{accessCode && view && (

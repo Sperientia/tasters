@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 
 // Extracting the query params from the url in a custom hook
-export const useGetParams = ({set_access_code, set_view}) => {
+export const useGetParams = (set_access_code, set_view) => {
 
 	useEffect(() => {
 		const urlParams = new URLSearchParams(window.location.search)
@@ -9,6 +9,7 @@ export const useGetParams = ({set_access_code, set_view}) => {
 		const view = urlParams.get("view")
 		set_access_code(accessCode)
 		set_view(view)
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	return true

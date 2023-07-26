@@ -1,15 +1,12 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 
 // Fetch data from the API
-export const useFetch = (url) => {
-	const [fetchState, setFetchState] = useState({
-		data: [],
-		loading: true,
-		error: false
-	})
-
+export const useFetch = (url, {callAPI, login, setError, loadingUserData}) => {
+	
 	useEffect(() => {
 		const fetchData = async () => {
+			if (loadingUserData) return
+			callAPI()
 			try {
 				const response = await fetch(url)
 				// Check if the response is ok
@@ -17,26 +14,15 @@ export const useFetch = (url) => {
 					throw new Error("Something went wrong", response.statusText)
 				// Get the data
 				const data = await response.json()
-				// Check if internal status code is in range 200-300
-				if (data.status_code < 200 || data.status_code >= 300)
-					throw new Error("Something went wrong", data.message)
-				
-				setFetchState({
-					data,
-					loading: false,
-					error: false
-				})
+				login(data)
 			} catch (error) {
-				setFetchState({
-					data: [],
-					loading: false,
-					error: true
-				})
+				console.error(`Error: ${error.message}`)
+				setError()
 			}
 		}
 
 		fetchData(url)
-	}, [url])
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
-	return fetchState
 }
