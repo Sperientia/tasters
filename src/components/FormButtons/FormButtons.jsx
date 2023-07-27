@@ -13,7 +13,6 @@ export const FormButtons = () => {
 		errorFormsData
 	} = useFormStore('/tables')
 
-	console.log(formsData)
 	return (
 		<div className="formButtons__section">
 			{loadingFormsData && <p>Loading...</p>}
@@ -21,13 +20,13 @@ export const FormButtons = () => {
 			{!loadingFormsData && !errorFormsData && !formsData && <p>No forms found</p>}
 			
 			{!loadingFormsData && !errorFormsData && formsData && (
-				Object.entries(formsData).map(([formName, formLink], index) => {
-					if (formName !== 'users')
+				Object.entries(formsData).map(([formLink, formName], index) => {
+					if (formLink !== 'users')
 						return (
 							<FormButton
 								key={index}
-								formName={formName}
-								formLink={formLink[0]}
+								formName={formName[0]}
+								formLink={formLink}
 								accessCode={accessCode}
 							/>
 						)	

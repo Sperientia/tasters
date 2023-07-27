@@ -2,6 +2,7 @@ import { useStore } from '../../hooks/useStore'
 import { Header } from '../Header/Header'
 import { LoginView } from '../../views/LoginView/LoginView'
 import { UserView } from '../../views/UserView/UserView'
+import { FormsView } from '../../views/FormsView/FormsView'
 
 function App() {
 	// Get the accessCode and view from useStore
@@ -27,7 +28,10 @@ function App() {
 			)}
 			{/* If there is accessCode and view then render FormsView */}
 			{accessCode && view && (
-				<h1>FormsView4</h1>
+				<FormsView
+					formName={view}
+					accessCode={accessCode}
+				/>
 			)}
 		</>
 	)

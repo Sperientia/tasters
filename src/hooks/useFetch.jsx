@@ -5,7 +5,6 @@ export const useFetch = (url, {callAPI, setData, setError, loadingUserData}) => 
 	useEffect(() => {
 		const fetchData = async () => {
 			if (loadingUserData) return
-			console.log(url)
 			callAPI()
 			try {
 				const response = await fetch(url)
