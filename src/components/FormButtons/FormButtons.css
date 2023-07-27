@@ -1,0 +1,27 @@
+.formButtons__section {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-top: 2rem;
+}
+
+.formButton__button {
+	color: white;
+	text-decoration: none;
+	background-color: var(--highlight-second-color);
+	padding: 1rem;
+	border-radius: 5px;
+	border: 1px solid var(--highlight-second-color);
+	transition: all 250ms ease-in-out;
+}
+
+.formButton__button:hover {
+	transform: translateY(-2px);
+}
+
+.formButton__button--noCompleted {
+	color: var(--highlight-second-color);
+	background-color: transparent;
+	border: 3px solid var(--highlight-second-color);
+	font-weight: bold;
+}

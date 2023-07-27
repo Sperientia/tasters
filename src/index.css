@@ -5,6 +5,7 @@
 	--secondary-color: #0B85FF;
 	--highlight-color: #E72A6D;
 	--link-navbar-color: #39399d;
+	--highlight-second-color: #5E5EF5;
 }
 
 body {
@@ -24,7 +25,7 @@ body {
 
 
 .container {
-	margin: 0 auto;
+	margin: 5rem auto;
 	border: 1px solid var(--highlight-color);
 
 	width: fit-content;
@@ -34,7 +35,6 @@ body {
 	height: fit-content;
 	min-height: 40vh;
 
-	margin-top: 5rem;
 	border-radius: 5px;
 	padding: 1rem 2rem;
 }
