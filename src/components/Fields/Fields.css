@@ -1,6 +1,7 @@
 .field {
   display: flex;
-  align-items: center;
+	flex-direction: column;
+  align-items: start;
 
 	width: 100%;
 	padding: 1rem;
@@ -17,9 +18,9 @@
 }
 
 .field__name {
-  width: 250px;
-	padding: 0 10px;
+	padding: 0;
 	font-weight: 500;
+	color: var(--link-navbar-color);
 }
 
 .field--empty .field__name {
@@ -39,6 +40,17 @@
 	font-size: 2rem;
 	text-align: center;
 	cursor: default;
+}
+
+.field:has(.field__checkbox) .field__name {
+	align-self: start;
+	margin-bottom: 0.5rem;
+}
+
+.field:has(.field__checkbox) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .field__checkbox--false {
@@ -74,7 +86,7 @@
 }
 
 .field__btn:hover {
-	transform: scale(1.05);
+	transform: translateY(-2px);
 }
 
 .field__link__value {
@@ -110,9 +122,8 @@
 }
 
 .multiple__single__value {
-	border: 1px solid #ccc;
-	padding: 5px;
-	margin-bottom: 4px;
+	padding: 0 2px;
+	margin-bottom: 2px;
 	border-radius: 5px;
 }
 
@@ -129,8 +140,10 @@
 	font-size: 1rem;
 }
 
-.field__value {
+.field__value,
+.field__value__multiple {
 	word-break: break-all;
+	padding: 0 1rem;
 }
 
 @media (max-width: 900px) {
@@ -138,7 +151,6 @@
 		width: 100%;
 	}
 	.field__name {
-		width: 100px;
 		margin-right: 1rem;
 	}
 	.field__value {

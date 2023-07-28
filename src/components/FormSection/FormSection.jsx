@@ -3,6 +3,7 @@ import { Text } from '../Fields/Text'
 import { Checkbox } from '../Fields/Checkbox'
 import { Link } from '../Fields/Link'
 import { Multiple } from '../Fields/Multiple'
+import { BackButton } from '../BackButton/BackButton'
 
 const typeOfInput = {
 	text: (index, fieldName, value) => <Text key={index} fieldName={fieldName} value={value} />,
@@ -11,9 +12,10 @@ const typeOfInput = {
 	multiple: (index, fieldName, value) => <Multiple key={index} fieldName={fieldName} value={value} />,
 }
 
-export const FormSection = ({ data, mappingData, title, subtitle }) => {
+export const FormSection = ({ data, mappingData, title, subtitle, backButton, accessCode }) => {
 	return (
 		<div className="form__section">
+			{backButton && <BackButton accessCode={accessCode} />}
 			<h1 className="form__title">{title?.map((part, index) => (
 				<span key = {index}>{part} </span>
 			))}</h1>

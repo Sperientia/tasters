@@ -29,7 +29,7 @@ function App() {
 			{/* If there is accessCode and view then render FormsView */}
 			{accessCode && view && (
 				<FormsView
-					formName={view}
+					formLink={view}
 					accessCode={accessCode}
 				/>
 			)}

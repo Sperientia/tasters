@@ -6,7 +6,7 @@ function Link({ fieldName, value }) {
 	if (!value) fieldNameClass += ' field--empty'
 	return (
 		<div className={fieldNameClass + ' field__link'}>
-			<a href={value} target='_blank' className='field__link__value' rel='noreferrer'>
+			<a href={value} className='field__link__value'>
 				<button className='field__btn'>{fieldName}</button>
 			</a>
 		</div>

@@ -3,7 +3,7 @@ import { FormButton } from "./FormButton"
 import { useStore } from "../../hooks/useStore"
 import { useFormStore } from "../../hooks/useFormStore"
 
-export const FormButtons = () => {
+export const FormButtons = ({ formsDone }) => {
 	const {
 		accessCode
 	} = useStore()
@@ -21,6 +21,10 @@ export const FormButtons = () => {
 			
 			{!loadingFormsData && !errorFormsData && formsData && (
 				Object.entries(formsData).map(([formLink, formName], index) => {
+					let extraClassName = ''
+					if (formsDone[formLink + '_done'] === true) {
+						extraClassName += 'done'
+					}
 					if (formLink !== 'users')
 						return (
 							<FormButton
@@ -28,6 +32,7 @@ export const FormButtons = () => {
 								formName={formName[0]}
 								formLink={formLink}
 								accessCode={accessCode}
+								extraClassName={extraClassName}
 							/>
 						)	
 					return null

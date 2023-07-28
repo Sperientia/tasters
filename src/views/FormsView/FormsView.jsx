@@ -1,28 +1,26 @@
 import { Error404 } from '../../components/Error404/Error404'
 import { FormSection } from '../../components/FormSection/FormSection'
-import { useStoreUser } from '../../hooks/useStoreUser'
+import { useFormStore } from '../../hooks/useFormStore'
 import { useStoreMapping } from '../../hooks/useStoreMapping'
 
 // eslint-disable-next-line react/prop-types
-export const FormsView = ({ formName, accessCode }) => {
+export const FormsView = ({ formLink, accessCode }) => {
 	// Get the reducer from mappingData
 	const {
 		mappingData,
 		loadingMappingData,
 		errorMappingData
-	} = useStoreMapping(formName)
+	} = useStoreMapping(formLink)
 
-	// Get the reducer from useStoreUser
+	// Get the reducer from useFormStore
 	const {
-		userData,
-		loadingUserData,
-		errorUserData
-	} = useStoreUser(accessCode)
+		formsData,
+		loadingFormsData,
+		errorFormsData
+	} = useFormStore(`/table/${formLink}/${accessCode}`)
 
-	console.log(mappingData, userData)
-
-	const loadingData = loadingMappingData || loadingUserData
-	const errorData = errorMappingData || errorUserData
+	const loadingData = loadingMappingData || loadingFormsData
+	const errorData = errorMappingData || errorFormsData
 
 	let className = 'forms__view container' + (loadingData ? ' loading' : '')
 	className = className + (errorData ? ' error' : '')
@@ -35,11 +33,14 @@ export const FormsView = ({ formName, accessCode }) => {
 				<Error404 errorMessae={errorData} />
 			)}
 
-			{userData && !loadingData && !errorData && (
+			{formsData && !loadingData && !errorData && (
 				<>
 					<FormSection
-						data={userData}
+						data={formsData[0]}
 						mappingData={mappingData}
+						accessCode={accessCode}
+						backButton={true}
+						title={[mappingData[0]['table_frontend_name']]}
 					/>
 				</>
 			)}
