@@ -3,6 +3,7 @@ import { FormSection } from '../../components/FormSection/FormSection'
 import { useStoreUser } from '../../hooks/useStoreUser'
 import { useStoreMapping } from '../../hooks/useStoreMapping'
 import { FormButtons } from '../../components/FormButtons/FormButtons'
+import { LoadingContainer } from '../../components/LoadingContainer/LoadingContainer'
 
 // eslint-disable-next-line react/prop-types
 export const UserView = ({ accessCode }) => {
@@ -38,7 +39,7 @@ export const UserView = ({ accessCode }) => {
 
 	return (
 		<div className={className}>
-			{loadingData && <p>Loading...</p>}
+			{loadingData && <LoadingContainer />}
 
 			{errorData && !loadingData && (
 				<Error404 errorMessae={errorData} />

@@ -39,6 +39,12 @@ body {
 	padding: 1rem 2rem;
 }
 
+.container.loading {
+	padding: 0;
+	border: none;
+	margin-top: 10rem;
+}
+
 .container.error {
 	width: 100vw;
 	max-width: none;

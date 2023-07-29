@@ -1,5 +1,6 @@
 import { Error404 } from '../../components/Error404/Error404'
 import { FormSection } from '../../components/FormSection/FormSection'
+import { LoadingContainer } from '../../components/LoadingContainer/LoadingContainer'
 import { useFormStore } from '../../hooks/useFormStore'
 import { useStoreMapping } from '../../hooks/useStoreMapping'
 
@@ -27,7 +28,7 @@ export const FormsView = ({ formLink, accessCode }) => {
 
 	return (
 		<div className={className}>
-			{loadingData && <p>Loading...</p>}
+			{loadingData && <LoadingContainer /> }
 
 			{errorData && !loadingData && (
 				<Error404 errorMessae={errorData} />

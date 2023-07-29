@@ -2,6 +2,7 @@
 import { FormButton } from "./FormButton"
 import { useStore } from "../../hooks/useStore"
 import { useFormStore } from "../../hooks/useFormStore"
+import { LoadingContainer } from "../LoadingContainer/LoadingContainer"
 
 export const FormButtons = ({ formsDone }) => {
 	const {
@@ -15,7 +16,7 @@ export const FormButtons = ({ formsDone }) => {
 
 	return (
 		<div className="formButtons__section">
-			{loadingFormsData && <p>Loading...</p>}
+			{loadingFormsData && <LoadingContainer />}
 			{errorFormsData && <p>Error: {errorFormsData}</p>}
 			{!loadingFormsData && !errorFormsData && !formsData && <p>No forms found</p>}
 			
