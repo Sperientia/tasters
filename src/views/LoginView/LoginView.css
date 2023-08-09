@@ -9,38 +9,6 @@
 	color: #7D7463;
 }
 
-.social__icon__section {
-	display: flex;
-	justify-content: space-evenly;
-	width: 100%;
-	min-height: 0.3rem;
-}
-
-
-.social__icon--button {
-	color: #2A2A57;
-  display: inline-block;
-  font-size: 24px; 
-  background-color: #F6F6F6; 
-  text-decoration: none; 
-  border: 1px solid #e0e0e0;
-	border-radius: 5px;
-  cursor: pointer;
-  margin: 10px;
-  padding: 10px 50px;
-
-	transition: all 250ms ease;
-}
-
-.social__icon--button:hover {
-  background-color: #e0e0e0;
-	transform: scale(1.03);
-}
-
-.social__icon--button img {
-  width: 24px;
-  height: 24px;
-}
 
 
 @media (max-width: 850px) {
@@ -61,10 +29,5 @@
 		width: 100%;
 		max-width: 95vw;
 		max-height: none;
-	}
-
-	.social__icon--button {
-		font-size: 20px;
-		padding: 10px 20px;
 	}
 }

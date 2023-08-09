@@ -2,8 +2,8 @@ import { Error404 } from '../../components/Error404/Error404'
 import { FormSection } from '../../components/FormSection/FormSection'
 import { useStoreUser } from '../../hooks/useStoreUser'
 import { useStoreMapping } from '../../hooks/useStoreMapping'
-import { FormButtons } from '../../components/FormButtons/FormButtons'
 import { LoadingContainer } from '../../components/LoadingContainer/LoadingContainer'
+import { GalleryButton } from '../../components/GalleryButton/GalleryButton'
 
 // eslint-disable-next-line react/prop-types
 export const UserView = ({ accessCode }) => {
@@ -22,13 +22,11 @@ export const UserView = ({ accessCode }) => {
 	} = useStoreUser(accessCode)
 
 
-	let formsDone = {}
+	let uncompletedForms = false
 	if (userData !== null) {
-		const userDataFiltered = Object.entries(userData).filter((field) => field[0].includes('done'))
+		const userDataFiltered = Object.entries(userData).filter((field) => field[0].includes('done') && field[1][0] === false)
 
-		for (let i = 0; i < userDataFiltered.length; i++) {
-			formsDone[userDataFiltered[i][0]] = userDataFiltered[i][1][0]
-		}
+		uncompletedForms = userDataFiltered.length > 0
 	}
 
 	const loadingData = loadingMappingData || loadingUserData
@@ -53,8 +51,9 @@ export const UserView = ({ accessCode }) => {
 						title={['Hola,', <span className='color__pink' key={1}>{userData.name}</span>]}
 						subtitle='Este es tu perfil de tasters, al final de la página habrá un link donde podrás actualizar y completar tus datos.'
 					/>
-					<FormButtons
-						formsDone={formsDone}
+					<GalleryButton
+						uncompletedForms={uncompletedForms}
+						accessCode={accessCode}
 					/>
 				</>
 			)}

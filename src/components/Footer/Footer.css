@@ -1,0 +1,27 @@
+.footer {
+	background-color: #292956;
+	color: #fff;
+	padding: 2rem;
+	line-height: 1.5;
+
+	width: 100%;
+}
+
+.footer--no-completed {
+	position: absolute;
+	bottom: 0;
+}
+
+.footer__line {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+
+
+.footer__logo__img {
+	width: 100%;
+	max-width: 200px;
+} 

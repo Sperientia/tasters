@@ -8,6 +8,13 @@
 	--highlight-second-color: #5E5EF5;
 }
 
+
+* {
+	box-sizing: border-box;
+	font-family: 'Poppins';
+}
+
+
 body {
   font-family: "Poppins", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -16,13 +23,15 @@ body {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+
+	height: 100%;
 }
 
-* {
-	box-sizing: border-box;
-	font-family: 'Poppins';
+.root {
+	position: relative;
+	min-height: 100%;
+	padding-bottom: 50px;
 }
-
 
 .container {
 	margin: 5rem auto;
