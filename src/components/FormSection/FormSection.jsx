@@ -15,7 +15,7 @@ const typeOfInput = {
 export const FormSection = ({ data, mappingData, title, subtitle, backButton, accessCode }) => {
 	return (
 		<div className="form__section">
-			{backButton && <BackButton accessCode={accessCode} />}
+			{backButton && <BackButton accessCode={accessCode} backPage = {"formsGallery"} />}
 			<h1 className="form__title">{title?.map((part, index) => (
 				<span key = {index}>{part} </span>
 			))}</h1>

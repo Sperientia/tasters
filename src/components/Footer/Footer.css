@@ -1,27 +1,42 @@
 .footer {
 	background-color: #292956;
 	color: #fff;
-	padding: 2rem;
+	padding: 2rem 4rem;
 	line-height: 1.5;
 
 	width: 100%;
 }
 
-.footer--no-completed {
-	position: absolute;
-	bottom: 0;
-}
+.footer__logo__img {
+	width: 128px;
+	height: 54px;
+} 
 
 .footer__line {
 	width: 100%;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	align-items: center;
 }
 
+.footer__line__right {
+	width: 100px;
+	display: flex;
+	justify-content: space-between;
+}
 
+.social__icon--button {
+	font-size: 1.5rem;
+	color: white;
+}
 
-.footer__logo__img {
-	width: 100%;
-	max-width: 200px;
-} 
+.second {
+	margin-top: 2rem;
+	padding: 0 1rem;
+	flex-wrap: wrap;
+}
+
+.footer__links {
+	text-decoration: none;
+	color: white;
+}

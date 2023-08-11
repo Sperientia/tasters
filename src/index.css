@@ -55,7 +55,7 @@ body {
 }
 
 .container.error {
-	width: 100vw;
+	width: 100%;
 	max-width: none;
 	display: flex;
 	justify-content: center;

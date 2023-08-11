@@ -3,7 +3,7 @@ import './LoginForm.css'
 export const LoginForm = () => {
 
 	return (
-		<form className='login__form'>
+		<form className='login__form' autoComplete='off'>
 			<input
 					type="text"
 					name="accessCode"

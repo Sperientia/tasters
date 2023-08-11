@@ -31,7 +31,9 @@ function App() {
 			)}
 			{/* If there is an accessCode and view is formsGallery, go to formsGallery */}
 			{accessCode && view === 'formsGallery' && (
-				<FormsGalleryView />
+				<FormsGalleryView
+					accessCode={accessCode}
+				/>
 			)}
 			{/* If there is accessCode and view then render FormsView */}
 			{accessCode && view && view !== 'formsGallery' && (
