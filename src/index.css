@@ -33,6 +33,10 @@ body {
 	padding-bottom: 50px;
 }
 
+.wrapper {
+	min-height: 70vh;
+}
+
 .container {
 	margin: 5rem auto;
 	border: 1px solid var(--highlight-color);

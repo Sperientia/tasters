@@ -1,20 +1,15 @@
 /* eslint-disable react/prop-types */
 import { FormButton } from "./FormButton"
-import { useStore } from "../../hooks/useStore"
 import { useFormStore } from "../../hooks/useFormStore"
 import { LoadingContainer } from "../LoadingContainer/LoadingContainer"
 
 export const FormButtons = ({ formsDone }) => {
-	const {
-		accessCode
-	} = useStore()
 	const {
 		formsData,
 		loadingFormsData,
 		errorFormsData
 	} = useFormStore('/tables')
 
-	console.log(formsData)
 
 	return (
 		<div className="formButtons__section">
@@ -34,7 +29,6 @@ export const FormButtons = ({ formsDone }) => {
 								key={index}
 								formName={formName[0]}
 								formLink={formLink}
-								accessCode={accessCode}
 								extraClassName={extraClassName}
 							/>
 						)	

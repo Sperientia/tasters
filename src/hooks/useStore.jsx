@@ -7,6 +7,11 @@ const reducer = (state, action) => {
 	const { type } = action
 	// Restart action
 	if (type === 'RESTART_APP') {
+		// Remove accessCode from local storage
+		localStorage.removeItem('accessCode')
+		// Restart window without the query params
+		window.location = window.location.href.split("?")[0]
+		// Return new state
 		return {
 			accessCode: '',
 			view: ''
@@ -18,6 +23,10 @@ const reducer = (state, action) => {
 		// Check if accessCode
 		if (!accessCode)
 			return state
+
+		// Save accessCode in local storage
+		localStorage.setItem('accessCode', accessCode)
+		// Return new state
 		return {
 			...state,
 			accessCode
@@ -52,11 +61,11 @@ export function useStore() {
 	})
 
 	// Create actions dispatchers
-	const restart_app = () => dispatch({ type: 'RESTART_APP' })
-	const set_access_code = accessCode => dispatch({ type: 'SET_ACCESS_CODE', accessCode })
-	const set_view = view => dispatch({ type: 'SET_VIEW', view })
+	const restartApp = () => dispatch({ type: 'RESTART_APP' })
+	const setAccessCode = accessCode => dispatch({ type: 'SET_ACCESS_CODE', accessCode })
+	const setView = view => dispatch({ type: 'SET_VIEW', view })
 	// Initialize reducer state
-	useGetParams(set_access_code, set_view)
+	useGetParams(setAccessCode, setView)
 
 
 
@@ -64,8 +73,8 @@ export function useStore() {
 	return {
 		accessCode,
 		view,
-		restart_app,
-		set_access_code,
-		set_view
+		restartApp,
+		setAccessCode,
+		setView
 	}
 }

@@ -3,11 +3,14 @@ import './LoginView.css'
 
 export const LoginView = () => {
 	return (
-		<div className="container login__view">
+		<div className='wrapper'>
+			<div className="container login__view">
 			<h4 className='login__title'>
 			¡Hola! Ingresa tu <span className='color__pink'>código</span> de acceso para continuar en la cajita de abajo 👇
 			</h4>
-			<LoginForm />
+			<LoginForm
+			/>
+			</div>
 		</div>
 	)
 }

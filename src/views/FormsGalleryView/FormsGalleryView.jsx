@@ -28,7 +28,7 @@ export const FormsGalleryView = ({ accessCode }) => {
 	return (
 		<div className="forms__gallery__view container">
 			<BackButton
-				accessCode={accessCode}
+				
 			/>
 			{loadingUserData && <LoadingContainer />}
 			{errorUserData && <Error404 />}

@@ -4,9 +4,12 @@ import { useEffect } from "react"
 export const useGetParams = (set_access_code, set_view) => {
 
 	useEffect(() => {
+		// The view is got from the query params
 		const urlParams = new URLSearchParams(window.location.search)
-		const accessCode = urlParams.get("accessCode")
 		const view = urlParams.get("view")
+		// The access code is got from local storage
+		const accessCode = localStorage.getItem("accessCode")
+		// Set the access code and view
 		set_access_code(accessCode)
 		set_view(view)
 	// eslint-disable-next-line react-hooks/exhaustive-deps

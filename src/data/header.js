@@ -3,5 +3,6 @@ export const headerFields = [
 	{ label: 'Reclutamiento', href: '/' },
 	{ label: 'Blog', href: '/' },
 	{ label: 'Contacto', href: '/' },
-	{ label: 'Registro', href: '/', type: 'button' },
+	{ label: 'Registro', href: '/', type: 'button', condition: 'isNotLoggedIn' },
+	{ label: 'Salir', href: '/', type: 'button', condition: 'isLoggedIn' },
 ]

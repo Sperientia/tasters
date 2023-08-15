@@ -36,14 +36,12 @@
 	border-radius: 100rem;
 	background-color: #fff;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+	display: none;
 }
 
 .navbar__item:hover {
 	transform: scale(1.02);
-}
-
-.navbar__item:hover:last-child {
-	background-color: #f5f5f5;
 }
 
 @media (max-width: 775px) {
@@ -56,4 +54,21 @@
 	.navbar__list {
 		display: none;
 	}
+}
+
+.show {
+	display: block;
+}
+
+.isLoggedIn,
+.isLoggedIn a {
+	cursor: pointer;
+	background-color: var(--highlight-color);
+	color: white;
+	transition: all 0.3s ease;
+}
+
+.isLoggedIn:hover,
+.isLoggedIn:hover a {
+	transform: translateY(-2px);
 }

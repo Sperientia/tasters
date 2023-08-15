@@ -16,7 +16,6 @@ function App() {
 	// If there is no accessCode and view, go to loginView
 	if (!accessCode && view) window.location.href = '/'
 
-
 	return (
 		<>
 			{/* We always show the header */}

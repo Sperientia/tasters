@@ -53,7 +53,6 @@ export const UserView = ({ accessCode }) => {
 					/>
 					<GalleryButton
 						uncompletedForms={uncompletedForms}
-						accessCode={accessCode}
 					/>
 				</>
 			)}
