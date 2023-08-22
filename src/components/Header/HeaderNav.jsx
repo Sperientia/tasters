@@ -24,8 +24,8 @@ export const HeaderNav = () => {
 						}
 					}
 					return (
-						<li key={index} className={`navbar__item ${extraClassName}`}>
-							<a href={field.href} className='navbar__link' rel='noreferrer' onClick={onclick}>{field.label}</a>
+						<li key={index} className={`navbar__item ${extraClassName}`} onClick={onclick}>
+							<a href={field.href} className='navbar__link' rel='noreferrer'>{field.label}</a>
 						</li>
 					)
 				})}
