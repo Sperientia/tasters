@@ -1,8 +1,12 @@
 /* eslint-disable react/prop-types */
+import { useStore } from '../../hooks/useStore'
 import { AiOutlineInfoCircle, AiOutlineWarning, AiOutlineBank } from 'react-icons/ai'
+import { BiLogOut } from 'react-icons/bi'
 import './ProfileSection.css'
 
 export const ProfileSection = ({ userData }) => {
+
+	const { restartApp } = useStore()
 	
 	return (
 		<div className='profile__section'>
@@ -28,6 +32,10 @@ export const ProfileSection = ({ userData }) => {
 					<li className='profile__option'>
 						<div className='profile__option--icon'> <AiOutlineWarning /> </div>
 						<a className='profile__option--link' href='#'>Reportar un problema</a>
+					</li>
+					<li className='profile__option'>
+							<div className='profile__option--icon'> <BiLogOut /> </div>
+							<a className='profile__option--link' href='#' onClick={() => restartApp()}>Cerrar sesión</a>
 					</li>
 				</ul>
 

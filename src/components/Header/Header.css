@@ -52,6 +52,8 @@
 	top: 1rem;
 	display: none;
 	z-index: 10000;
+
+	cursor: pointer;
 }
 
 .header__button.opened {

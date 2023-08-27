@@ -1,5 +1,6 @@
 import { ProfileSection } from '../../components/ProfileSection/ProfileSection'
 import { LoadingContainer } from '../../components/LoadingContainer/LoadingContainer'
+import { StudiesGrid } from '../../components/StudiesGrid/StudiesGrid'
 import { ErrorView } from '../ErrorView/ErrorView'
 import { useStoreUser } from '../../hooks/useStoreUser'
 import './UserView.css'
@@ -29,6 +30,9 @@ export const UserView = ({ accessCode }) => {
 			</section>
 			<section className="studies_section--wrapper">
 				<h2 className='studies__title'>ESTUDIOS RECIENTES</h2>
+				<StudiesGrid
+					userData={userData}
+				/>
 			</section>
 		</div>
 	)
