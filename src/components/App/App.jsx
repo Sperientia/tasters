@@ -12,7 +12,7 @@ function App() {
 	} = useStore()
 
 	// If there is no accessCode and view, go to loginView
-	if (!accessCode && view) window.location.href = '/'
+	if (view) window.location.href = '/'
 
 	return (
 		<>

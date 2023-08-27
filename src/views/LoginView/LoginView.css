@@ -27,3 +27,15 @@
 	margin: 0;
 	margin-bottom: 1.5rem;
 }
+
+@media screen and (max-width: 900px) {
+	.login__view {
+		flex-direction: column;
+	}
+	.welcome__section {
+		padding: 0;
+	}
+	.welcome__title {
+		font-size: 3rem;
+	}
+}
