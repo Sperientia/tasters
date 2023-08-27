@@ -40,3 +40,19 @@
 	text-decoration: none;
 	color: white;
 }
+
+@media screen and (max-width: 900px) {
+	.footer {
+		padding: 2rem 2rem;
+	}
+	.footer__line {
+		flex-direction: column;
+	}
+	.footer__line__right {
+		width: 100%;
+		justify-content: space-evenly;
+	}
+	.footer__logo__img {
+		margin-bottom: 2rem;
+	}
+}

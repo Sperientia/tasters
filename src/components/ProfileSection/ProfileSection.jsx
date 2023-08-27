@@ -30,12 +30,13 @@ export const ProfileSection = ({ userData }) => {
 						<a className='profile__option--link' href='#'>Reportar un problema</a>
 					</li>
 				</ul>
-			</div>
 
-			<div className='profile__footer'>
-				<p className='profile__footer--msg'>
-					¿No encuentras lo que buscas? Ponte en contacto con el equipo de Tasters <a href="#">aquí</a>.
-				</p>
+				<div className='profile__footer'>
+					<p className='profile__footer--msg'>
+						¿No encuentras lo que buscas? Ponte en contacto con el equipo de Tasters <a href="#">aquí</a>.
+					</p>
+				</div>
+				
 			</div>
 		</div>
 	)

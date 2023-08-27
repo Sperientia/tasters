@@ -51,3 +51,21 @@
 	height: 2px;
 	background-color: var(--primary-color);
 }
+
+@media screen and (max-width: 900px) {
+	.user__view {
+		flex-direction: column;
+	}
+	.profile__section--wrapper {
+		width: 100%;
+		height: auto;
+		padding: 2rem 2rem 0 2rem;
+	}
+	.studies_section--wrapper {
+		width: 100%;
+		height: auto;
+	}
+	.studies__title {
+		font-size: 1.5rem;
+	}
+}
