@@ -1,13 +1,14 @@
+/* eslint-disable react/prop-types */
 import { headerFields } from '../../data/header'
 import { useStore } from '../../hooks/useStore'
-import './Header.css'
 
 
-export const HeaderNav = () => {
+export const HeaderNav = ({ menuOpen }) => {
 	const { accessCode, restartApp } = useStore()
+	const extraClassName = menuOpen ? 'header__nav--open' : ''
 
 	return (
-		<nav className='header__nav'>
+		<nav className={'header__nav ' + extraClassName}>
 			<ul className='navbar__list'>
 				{headerFields.map((field, index) => {
 					let extraClassName = ''
@@ -24,8 +25,8 @@ export const HeaderNav = () => {
 						}
 					}
 					return (
-						<li key={index} className={`navbar__item ${extraClassName}`}>
-							<a href={field.href} className='navbar__link' rel='noreferrer' onClick={onclick}>{field.label}</a>
+						<li key={index} className={`navbar__item ${extraClassName}`} onClick={onclick}>
+							<a href={field.href} className='navbar__link' rel='noreferrer'>{field.label}</a>
 						</li>
 					)
 				})}

@@ -3,9 +3,8 @@ import { socials } from '../../data/social'
 import footerLogo from '../../assets/footer-logo.png'
 import './Footer.css'
 
-export const Footer = ({ pageNoCompleted }) => {
+export const Footer = () => {
 	let className = 'footer'
-	if (pageNoCompleted) className += ' footer--no-completed'
 	return (
 		<footer className={className}>
 			<div className="footer__line first">

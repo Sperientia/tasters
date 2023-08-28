@@ -1,61 +1,39 @@
-import { Error404 } from '../../components/Error404/Error404'
-import { FormSection } from '../../components/FormSection/FormSection'
-import { useStoreUser } from '../../hooks/useStoreUser'
-import { useStoreMapping } from '../../hooks/useStoreMapping'
+import { ProfileSection } from '../../components/ProfileSection/ProfileSection'
 import { LoadingContainer } from '../../components/LoadingContainer/LoadingContainer'
-import { GalleryButton } from '../../components/GalleryButton/GalleryButton'
+import { StudiesGrid } from '../../components/StudiesGrid/StudiesGrid'
+import { ErrorView } from '../ErrorView/ErrorView'
+import { useStoreUser } from '../../hooks/useStoreUser'
+import './UserView.css'
 
 // eslint-disable-next-line react/prop-types
 export const UserView = ({ accessCode }) => {
-	// Get the reducer from mappingData
-	const {
-		mappingData,
-		loadingMappingData,
-		errorMappingData
-	} = useStoreMapping('users')
-
-	// Get the reducer from useStoreUser
 	const {
 		userData,
 		loadingUserData,
 		errorUserData
 	} = useStoreUser(accessCode)
 
+	if (loadingUserData || (!userData && !errorUserData)) return (
+		<div className='wrapper user__loading'>
+			<LoadingContainer />
+		</div>
+	)
 
-	let uncompletedForms = false
-	if (userData !== null) {
-		const userDataFiltered = Object.entries(userData).filter((field) => field[0].includes('done') && field[1][0] === false)
-
-		uncompletedForms = userDataFiltered.length > 0
-	}
-
-	const loadingData = loadingMappingData || loadingUserData
-	const errorData = errorMappingData || errorUserData
-
-	let className = 'user__view container' + (loadingData ? ' loading' : '')
-	className = className + (errorData ? ' error' : '')
+	if (errorUserData) return <ErrorView />
 
 	return (
-		<div className={className}>
-			{loadingData && <LoadingContainer />}
-
-			{errorData && !loadingData && (
-				<Error404 errorMessae={errorData} />
-			)}
-
-			{userData && !loadingData && !errorData && (
-				<>
-					<FormSection
-						data={userData}
-						mappingData={mappingData}
-						title={['Hola,', <span className='color__pink' key={1}>{userData.name}</span>]}
-						subtitle='Este es tu perfil de tasters, al final de la página habrá un link donde podrás actualizar y completar tus datos.'
-					/>
-					<GalleryButton
-						uncompletedForms={uncompletedForms}
-					/>
-				</>
-			)}
+		<div className="wrapper user__view">
+			<section className="profile__section--wrapper">
+				<ProfileSection
+					userData={userData}
+				/>
+			</section>
+			<section className="studies_section--wrapper">
+				<h2 className='studies__title'>ESTUDIOS RECIENTES</h2>
+				<StudiesGrid
+					userData={userData}
+				/>
+			</section>
 		</div>
 	)
 }
