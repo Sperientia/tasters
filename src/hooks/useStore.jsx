@@ -10,7 +10,7 @@ const reducer = (state, action) => {
 		// Remove accessCode from local storage
 		localStorage.removeItem('accessCode')
 		// Restart window without the query params
-		window.location = window.location.href.split("?")[0]
+		window.location.reload()
 		// Return new state
 		return {
 			accessCode: '',
