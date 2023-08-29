@@ -23,10 +23,11 @@ export const StudiesGrid = ({ userData }) => {
 				link: studiesLinks[key] || null
 		} })
 	}
+
 	
 	studies.sort(
 		(s1, s2) => (
-			s1['done'] && !s2['done'] ? 1 : -1
+			s1[Object.keys(s1)[0]]['done'] && !s2[Object.keys(s2)[0]]['done'] ? 1 : -1
 		)
 	)
 

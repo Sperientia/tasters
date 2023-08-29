@@ -2,11 +2,18 @@
 import { useStore } from '../../hooks/useStore'
 import { AiOutlineInfoCircle, AiOutlineWarning, AiOutlineBank } from 'react-icons/ai'
 import { BiLogOut } from 'react-icons/bi'
+import { BsArrowRight } from 'react-icons/bs'
 import './ProfileSection.css'
 
 export const ProfileSection = ({ userData }) => {
 
 	const { restartApp } = useStore()
+
+	const toggleModal = () => {
+		const modal = document.querySelector('.profile__options')
+		modal.classList.toggle('profile__options--active')
+	}
+
 	
 	return (
 		<div className='profile__section'>
@@ -18,7 +25,16 @@ export const ProfileSection = ({ userData }) => {
 				En este espacio podrás consultar los últimos estudios de Tasters en donde tendrás oportunidad de participar. Adicionalmente, abajo 	tenemos otras acciones que puedes realizar.
 			</p>
 
+			<h3
+				className='profile__options--tag'
+				onClick={() => toggleModal()}
+			>
+				OTRAS OPCIONES
+			</h3>
 			<div className='profile__options'>
+				<div className="profile__options--arrow" onClick={() => toggleModal()}>
+					<BsArrowRight />
+				</div>
 				<h3 className='profile__options--title'>OTRAS OPCIONES</h3>
 				<ul className='profile__options--list'>
 					<li className='profile__option'>
