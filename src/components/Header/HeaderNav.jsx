@@ -21,7 +21,7 @@ export const HeaderNav = ({ menuOpen }) => {
 						}
 						if (field.condition === 'isNotLoggedIn' && !accessCode) {
 							extraClassName += ' show'
-							onclick = () => window.location.href = '/'
+							onclick = () => window.location.href = '#'
 						}
 					}
 					return (
