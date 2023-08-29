@@ -126,6 +126,8 @@
 		transition: all 0.3s ease-in-out;
 		color: white;
 		font-size: 0.8rem;
+
+		cursor: pointer;
 	}
 
 	.profile__msg {
